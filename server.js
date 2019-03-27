@@ -7,8 +7,7 @@ var app = express();
 
 // Configure middleware
 
-// Use morgan logger for logging req
-app.use(logger("dev"));
+
 
 // Parse request body as JSON
 app.use(express.urlencoded({
