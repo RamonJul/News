@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <img src={{image}} alt="article image">
+                </div>
+                <div class="col-6">
+                    <h1 id="header">{{title}}</h1>
+                    <p>{{summary}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{!-- {{#if notes}}
+<div class="row">
+<div class="col-12">
+    {{#each notes}}
+    {{/each}}
+</div>
+</div>
+{{/if}} --}}
+ <div class="row">
+     <div class="col-12">
+         <Input type="text" id="comments-input"class="form-control" ></Input>
+         <button id="make-comment" class="btn btn-primary" data-id={{_id}}>Comment</button>
+     </div>
+ </div>
+</div>

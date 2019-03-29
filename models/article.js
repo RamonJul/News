@@ -25,10 +25,10 @@ var ArticleSchema = new Schema({
       required:true
   },
   // `note` is an object that stores a Note id
-  note: {
+  notes: [{
     type: Schema.Types.ObjectId,
     ref: "note"
-  }
+  }]
 });
 
 // This creates our model from the above schema, using mongoose's model method

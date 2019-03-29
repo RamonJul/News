@@ -4,14 +4,18 @@ const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 const db = require("./../models");
-
-mongoose.connect("mongodb://localhost/unit18Populater", {
+mongoose.connect("mongodb://localhost/news", {
   useNewUrlParser: true
 });
 
+//load the articles
 router.get("/", function (req, res) {
-  db.Article.find({}).then(function (data) {
 
+  db.Article.find({}).then((data) => {
+    res.render("index.handlebars",{
+      articles:data
+    })
+    // res.json(data)
   })
 
 })
@@ -38,7 +42,7 @@ router.get("/scrape", (req, res) => {
         db.Article.create(obj).then((articles) => {
           console.log(articles)
         })
-    
+
       }
 
     });
@@ -46,15 +50,35 @@ router.get("/scrape", (req, res) => {
   });
 
 })
-//load the articles
 
 
-router.get("/articles./:id", function (req, res) {
 
-
+router.get("/articles/:id", (req, res) => {
+  console.log(req.params.id)
+  db.Article.findOne({
+    _id: req.params.id
+  }).populate("notes").then((article) => {
+    console.log(article)
+  //  res.json(article)
+    res.render("article.handlebars",article)
+  })
 })
 
-router.post("/articles/:id", function (req, res) {
+router.post("/articles/:id", (req, res) => {
+  console.log(req.body)
+  // db.Note.create(req.body).then((data) => {
 
+  //     db.Article.findByIdAndUpdate({
+  //       _id:req.params.id
+
+  //     },
+  //     {
+  //       note:data._id
+  //     },
+  //     {
+  //       new:true
+  //     })
+
+  // })
 })
 module.exports = router;

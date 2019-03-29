@@ -20,9 +20,6 @@ app.use(express.json());
 app.use(express.static("public"));
 var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view",path.join(__dirname,"view")) 
-
-
 app.set("view engine", "handlebars");
 var routes = require("./controllers/controller.js");
 // Connect to the Mongo DB

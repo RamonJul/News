@@ -1,62 +1,17 @@
-<img id= "burger_pic" src="/assets/img/burger_name.jpg" alt="burger">
 <div class="container">
   <div class="row">
-    <div class="col-md-12" id="title">
-      <h1>WELCOME TO EAT DA BURGER</h1>
-      <p> List down the burgers you want to eat and will keep them tracked
-
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6" id="not_eaten">
-      <div class="row"><h4>Buger You Wanna Eat</h4></div>
-  
-      {{#each burger}}
-      {{#unless devoured }}
-      <div class="row">
-        <div class="col-md-9">
-          <p class="burger_name">{{burger_name}}</p>
-
-        </div>
-        <div class="col-md-3">
-          <button data-id={{id}} type="button" class="eat btn">EAT</button>
+    <div class="col-12">
+      {{#each articles}}
+      <div class="card" style="width: 18rem;">
+        <img src={{image}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{title}}</h5>
+          <p class="card-text">{{summary}}</p>
+         <button class="btn go_to_comments btn-primary view-comments" id="" data-id={{_id}}> Comments </button>
         </div>
       </div>
 
-      {{/unless}}
-      {{/each}}
-    </div>
-
-
-    <div class="col-md-6" id="eaten">
-       <div class="row"><h4>Buger You Ate</h4></div>
-      {{#each burger}}
-      {{#if devoured }}
-      <div class="row ">
-        <div class="col-md-9 eaten_col">
-          <p class="burger_name">{{burger_name}}
-
-            
-          </p>
-         
-        </div>
-        <div class="col-md-3 remove_col">
-            <button type="button" data-id={{id}} class="btn remove" >
-          <span aria-hidden="true">&times;</span>
-        </div>
-      </div>
-
-      {{/if}}
-
-      {{/each}}
+  {{/each}}
     </div>
   </div>
-  <div class="row">
-      <div class="col-md-12" id="new">
-    <input type="text" id="new_burger" placeholder="burger name">
-    <button type="submit" class="btn" id="burger">New Burger</button>
-  </div>
-  </div>
-
 </div>
