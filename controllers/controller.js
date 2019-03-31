@@ -46,7 +46,7 @@ router.get("/scrape", (req, res) => {
       }
 
     });
-    res.end()
+    res.redirect("/")
   });
 
 })
