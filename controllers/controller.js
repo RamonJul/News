@@ -4,7 +4,8 @@ const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 const db = require("./../models");
-mongoose.connect("mongodb://localhost/news", {
+var mongo_ui=process.env.MONGODB_URI ||"mongodb://localhost/news";
+mongoose.connect(mongo_ui, {
   useNewUrlParser: true
 });
 
