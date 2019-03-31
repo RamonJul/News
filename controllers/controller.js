@@ -12,12 +12,11 @@ mongoose.connect("mongodb://localhost/news", {
 router.get("/", function (req, res) {
 
   db.Article.find({}).then((data) => {
-    res.render("index.handlebars",{
-      articles:data
+    res.render("index.handlebars", {
+      articles: data
     })
-    // res.json(data)
+ 
   })
-
 })
 
 router.get("/scrape", (req, res) => {
@@ -46,7 +45,7 @@ router.get("/scrape", (req, res) => {
       }
 
     });
-
+    res.end()
   });
 
 })
@@ -59,26 +58,28 @@ router.get("/articles/:id", (req, res) => {
     _id: req.params.id
   }).populate("notes").then((article) => {
     console.log(article)
-  //  res.json(article)
-    res.render("article.handlebars",article)
+    //  res.json(article)
+    res.render("article.handlebars", article)
   })
 })
 
 router.post("/articles/:id", (req, res) => {
-  console.log(req.body)
-  // db.Note.create(req.body).then((data) => {
+  db.Note.create(req.body).then((data) => {
+    console.log(data._id)
 
-  //     db.Article.findByIdAndUpdate({
-  //       _id:req.params.id
+    db.Article.findByIdAndUpdate({
+      _id: req.params.id
 
-  //     },
-  //     {
-  //       note:data._id
-  //     },
-  //     {
-  //       new:true
-  //     })
+    }, {
+      $push: {
+        notes: data._id
+      }
+    }, {
+      new: true
+    }).then((response) => {
+      res.end()
+    })
 
-  // })
+  })
 })
 module.exports = router;

@@ -1,0 +1,84 @@
+
+body{
+    background-image:url("./images/news-background-with-spinning-earth-on-blue-background_nhvbb5ang__F0000 (1).png")
+}
+.article-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#article-container{
+    max-width: 90%;
+}
+.card{
+    margin: 10px;
+}
+.card-footer{
+    text-align:center;
+}
+
+#article-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#article{
+    padding-top:20px;
+}
+#article,#comment-list,#submit-comment{
+    border: 1px solid silver;
+    border-radius: 10px;
+    background-color: white;
+    margin: 10px 0;
+
+}
+
+#link,.go_to_comments,#make-comment{
+    color: black;
+}
+#header{
+    padding-bottom: 5px;
+    border-bottom: 3px solid black;
+
+}
+#article-image{
+ width: 100%;
+}
+#link{
+    text-align: center;
+}
+
+#article,.comments{
+    
+    border-bottom: 1px solid silver;
+}
+#comment-list,#submit-comment{
+    width: 100%;
+
+}
+
+#comment-list{
+    padding-top: 10px;
+}
+.comments{
+  
+    font-size: 15px;
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+#box{
+    display: flex;
+    flex-direction: column;
+}
+
+#comments-input{
+    margin-top: 20px;
+}
+#make-comment{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px auto;
+   
+}
+

@@ -1,17 +1,23 @@
-<div class="container">
+<div class="container" id="article-container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 article-list">
       {{#each articles}}
       <div class="card" style="width: 18rem;">
-        <img src={{image}} class="card-img-top" alt="...">
+           <a href={{link}}>
+        <img src={{image}} class="card-img-top" alt="article image">
+        </a>
         <div class="card-body">
           <h5 class="card-title">{{title}}</h5>
           <p class="card-text">{{summary}}</p>
-         <button class="btn go_to_comments btn-primary view-comments" id="" data-id={{_id}}> Comments </button>
+
+        </div>
+        <div class="card-footer text-muted">
+          <a href={{make_link _id}}> <button class="btn go_to_comments btn-danger view-comments"> Comments </button></a>
+         
         </div>
       </div>
 
-  {{/each}}
+      {{/each}}
     </div>
   </div>
 </div>

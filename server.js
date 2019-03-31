@@ -19,7 +19,16 @@ app.use(express.json());
 
 app.use(express.static("public"));
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+var hbs=exphbs.create({
+  defaultLayout: "main",
+  helpers:{make_link:function(path){
+
+    return `/articles/${path}`}
+  }
+})
+
+
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 var routes = require("./controllers/controller.js");
 // Connect to the Mongo DB
